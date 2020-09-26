@@ -1,7 +1,7 @@
 function pageLoad() {
 
     var btns = document.querySelectorAll('#calculator span');
-    var operators = ['+'];
+    var operators = ['+','-'];
     var inputScreen = document.querySelector('#screen');
     var btnValue;
     var input;
@@ -38,6 +38,7 @@ function pageLoad() {
                     decimalAdded = false;
                     break;
                 case '+':
+                case '-':    
                     // Last char of string
                     var lastChar = input[input.length - 1];
 
