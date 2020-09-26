@@ -44,6 +44,9 @@ function playAudio(number) {
         break;
         case '4':
          audio = new Audio('sounds/four.wav');
+        break;
+        case '5':
+         audio = new Audio('sounds/five.wav');
         break; 
     }
    
