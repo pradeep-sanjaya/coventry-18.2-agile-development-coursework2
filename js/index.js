@@ -55,10 +55,6 @@ function pageLoad() {
                     }
                     decimalAdded = false;
                     break;
-                case 'C':
-                    inputScreen.innerHTML = '';
-                    decimalAdded = false;
-                    break;
                 default:
                     inputScreen.innerHTML += btnValue;
                     decimalAdded = false;
@@ -67,7 +63,7 @@ function pageLoad() {
             }
         });
     }
-   
+
 }
 
 function playAudio(number) {
@@ -81,29 +77,11 @@ function playAudio(number) {
          break;
         case '2':
          audio = new Audio('sounds/two.wav');
-        break; 
+        break;
         case '3':
          audio = new Audio('sounds/three.wav');
         break;
-        case '4':
-         audio = new Audio('sounds/four.wav');
-        break;
-        case '5':
-         audio = new Audio('sounds/five.wav');
-        break;
-        case '6':
-         audio = new Audio('sounds/six.wav');
-        break;
-        case '7':
-         audio = new Audio('sounds/seven.wav');
-        break; 
-        case '8':
-         audio = new Audio('sounds/eight.wav');
-        break;
-        case '9':
-         audio = new Audio('sounds/nine.wav');
-        break; 
     }
-   
+
     audio.play();
 }
