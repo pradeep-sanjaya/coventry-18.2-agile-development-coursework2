@@ -15,7 +15,7 @@ function pageLoad() {
             input = inputScreen.innerHTML;
 
             switch (btnValue) {
-               
+
                 default:
                     inputScreen.innerHTML += btnValue;
                     decimalAdded = false;
@@ -24,15 +24,24 @@ function pageLoad() {
             }
         });
     }
-   
+
 }
 
 function playAudio(number) {
     var audio = null;
     switch(number) {
+        case '0':
+            audio = new Audio('sounds/zero.wav');
+            break;
+        case '1':
+            audio = new Audio('sounds/one.wav');
+            break;
+        case '2':
+            audio = new Audio('sounds/two.wav');
+            break;
         case '3':
          audio = new Audio('sounds/three.wav');
     }
-   
+
     audio.play();
 }
