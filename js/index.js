@@ -15,7 +15,10 @@ function pageLoad() {
             input = inputScreen.innerHTML;
 
             switch (btnValue) {
-               
+                case 'C':
+                    inputScreen.innerHTML = '';
+                    decimalAdded = false;
+                    break;
                 default:
                     inputScreen.innerHTML += btnValue;
                     decimalAdded = false;
