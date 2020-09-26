@@ -41,7 +41,10 @@ function playAudio(number) {
         break; 
         case '3':
          audio = new Audio('sounds/three.wav');
-         break;
+        break;
+        case '4':
+         audio = new Audio('sounds/four.wav');
+        break; 
     }
    
     audio.play();
