@@ -37,6 +37,12 @@ function pageLoad() {
                     }
                     decimalAdded = false;
                     break;
+                case '.':
+                    if(!decimalAdded) {
+                        inputScreen.innerHTML += btnValue;
+                        decimalAdded = true;
+                    }
+                    break;    
                 case '+':
                 case '-':
                 case '/':
