@@ -47,6 +47,12 @@ function playAudio(number) {
         break;
         case '5':
          audio = new Audio('sounds/five.wav');
+        break;
+        case '6':
+         audio = new Audio('sounds/six.wav');
+        break;
+        case '7':
+         audio = new Audio('sounds/seven.wav');
         break; 
     }
    
