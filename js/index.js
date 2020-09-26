@@ -56,6 +56,9 @@ function playAudio(number) {
         break; 
         case '8':
          audio = new Audio('sounds/eight.wav');
+        break;
+        case '9':
+         audio = new Audio('sounds/nine.wav');
         break; 
     }
    
