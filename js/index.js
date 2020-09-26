@@ -36,6 +36,9 @@ function playAudio(number) {
         case '1':
          audio = new Audio('sounds/one.wav');
          break;
+        case '2':
+         audio = new Audio('sounds/two.wav');
+        break; 
         case '3':
          audio = new Audio('sounds/three.wav');
          break;
