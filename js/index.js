@@ -30,8 +30,12 @@ function pageLoad() {
 function playAudio(number) {
     var audio = null;
     switch(number) {
+        case '0':
+         audio = new Audio('sounds/zero.wav');
+         break;
         case '3':
          audio = new Audio('sounds/three.wav');
+         break;
     }
    
     audio.play();
