@@ -1,16 +1,16 @@
 function pageLoad() {
 
     var btns = document.querySelectorAll('#calculator span');
-    var operators = ['+','-'];
+    var operators = ['+', '-'];
     var inputScreen = document.querySelector('#screen');
     var btnValue;
     var input;
 
-    for(var i=0; i< btns.length; i++) {
+    for (var i = 0; i < btns.length; i++) {
 
         var decimalAdded = false; // Flag used to avoid two decimal
 
-        btns[i].addEventListener('click', function () {
+        btns[i].addEventListener('click', function() {
 
             btnValue = this.innerHTML;
             input = inputScreen.innerHTML;
@@ -27,38 +27,36 @@ function pageLoad() {
                     // Checking the last character of the input.
                     // If it's an operator or a decimal, remove it
                     // /.$/ means last char in regex
-                    if(operators.indexOf(lastChar) > -1 || lastChar == '.')
+                    if (operators.indexOf(lastChar) > -1 || lastChar == '.')
                         input = input.replace(/.$/, '');
 
-                    if(input) {
+                    if (input) {
                         // If the argument is an expression, eval() evaluates the expression.
                         // If the argument is one or more JavaScript statements, eval() executes the statements.
                         inputScreen.innerHTML = eval(input);
                     }
                     decimalAdded = false;
+                    playAudio(btnValue);
                     break;
                 case '+':
-                case '-':    
+                case '-':
                     // Last char of string
                     var lastChar = input[input.length - 1];
 
                     // Only add operator if input is not empty and there is no operator at the last
-                    if(input != '' && operators.indexOf(lastChar) == -1)
+                    if (input != '' && operators.indexOf(lastChar) == -1)
                         inputScreen.innerHTML += btnValue;
 
                     // Allows minus if the string is empty. The first number could be under zero
-                    else if(input == '' && btnValue == '-')
+                    else if (input == '' && btnValue == '-')
                         inputScreen.innerHTML += btnValue;
 
                     // Allows to represent the last operation
-                    if(operators.indexOf(lastChar) > -1 && input.length > 1) {
+                    if (operators.indexOf(lastChar) > -1 && input.length > 1) {
                         inputScreen.innerHTML = input.replace(/.$/, btnValue);
                     }
                     decimalAdded = false;
-                    break;
-                case 'C':
-                    inputScreen.innerHTML = '';
-                    decimalAdded = false;
+                    playAudio(btnValue);
                     break;
                 default:
                     inputScreen.innerHTML += btnValue;
@@ -68,43 +66,52 @@ function pageLoad() {
             }
         });
     }
-   
+
 }
 
 function playAudio(number) {
     var audio = null;
-    switch(number) {
+    switch (number) {
         case '0':
-         audio = new Audio('sounds/zero.wav');
-         break;
+            audio = new Audio('sounds/zero.wav');
+            break;
         case '1':
-         audio = new Audio('sounds/one.wav');
-         break;
+            audio = new Audio('sounds/one.wav');
+            break;
         case '2':
-         audio = new Audio('sounds/two.wav');
-        break; 
+            audio = new Audio('sounds/two.wav');
+            break;
         case '3':
-         audio = new Audio('sounds/three.wav');
-        break;
+            audio = new Audio('sounds/three.wav');
+            break;
         case '4':
-         audio = new Audio('sounds/four.wav');
-        break;
+            audio = new Audio('sounds/four.wav');
+            break;
         case '5':
-         audio = new Audio('sounds/five.wav');
-        break;
+            audio = new Audio('sounds/five.wav');
+            break;
         case '6':
-         audio = new Audio('sounds/six.wav');
-        break;
+            audio = new Audio('sounds/six.wav');
+            break;
         case '7':
-         audio = new Audio('sounds/seven.wav');
-        break; 
+            audio = new Audio('sounds/seven.wav');
+            break;
         case '8':
-         audio = new Audio('sounds/eight.wav');
-        break;
+            audio = new Audio('sounds/eight.wav');
+            break;
         case '9':
-         audio = new Audio('sounds/nine.wav');
-        break; 
+            audio = new Audio('sounds/nine.wav');
+            break;
+        case '+':
+            audio = new Audio('sounds/addition.wav');
+            break;
+        case '-':
+            audio = new Audio('sounds/subtraction.wav');
+            break;
+        case '=':
+            audio = new Audio('sounds/equal.wav');
+            break;
     }
-   
+
     audio.play();
 }
