@@ -1,23 +1,20 @@
 function pageLoad() {
+    var buttons = document.querySelectorAll('#calculator span'),
+        operators = ['+', '-', '/', '*'],
+        inputScreen = document.querySelector('#screen'),
+        btnValue,
+        input;
 
-    var btns = document.querySelectorAll('#calculator span');
-    var operators = ['+','-','/','*'];
-    var inputScreen = document.querySelector('#screen');
-    var btnValue;
-    var input;
-
-    for(var i=0; i< btns.length; i++) {
-
+    for (let i = 0; i < buttons.length; i++) {
         var decimalAdded = false; // Flag used to avoid two decimal
 
-        btns[i].addEventListener('click', function() {
+        buttons[i].addEventListener('click', function() {
 
             btnValue = this.innerHTML;
             input = inputScreen.innerHTML;
 
             switch (btnValue) {
                 case '=':
-
                     // Last char of string
                     var lastChar = input[input.length - 1];
 
@@ -27,7 +24,7 @@ function pageLoad() {
                     // Checking the last character of the input.
                     // If it's an operator or a decimal, remove it
                     // /.$/ means last char in regex
-                    if (operators.indexOf(lastChar) > -1 || lastChar == '.')
+                    if (operators.indexOf(lastChar) > -1 || lastChar === '.')
                         input = input.replace(/.$/, '');
 
                     if (input) {
@@ -38,13 +35,15 @@ function pageLoad() {
                     decimalAdded = false;
                     playAudio(btnValue);
                     break;
+
                 case '.':
-                    if(!decimalAdded) {
+                    if (!decimalAdded) {
                         inputScreen.innerHTML += btnValue;
                         decimalAdded = true;
                         playAudio(btnValue);
                     }
                     break;
+
                 case '+':
                 case '-':
                 case '/':
@@ -53,11 +52,11 @@ function pageLoad() {
                     var lastChar = input[input.length - 1];
 
                     // Only add operator if input is not empty and there is no operator at the last
-                    if (input != '' && operators.indexOf(lastChar) == -1)
+                    if (input !== '' && operators.indexOf(lastChar) === -1)
                         inputScreen.innerHTML += btnValue;
 
                     // Allows minus if the string is empty. The first number could be under zero
-                    else if (input == '' && btnValue == '-')
+                    else if (input === '' && btnValue === '-')
                         inputScreen.innerHTML += btnValue;
 
                     // Allows to represent the last operation
@@ -67,11 +66,13 @@ function pageLoad() {
                     decimalAdded = false;
                     playAudio(btnValue);
                     break;
+
                 case 'C':
                     inputScreen.innerHTML = '';
                     decimalAdded = false;
                     playAudio(btnValue);
                     break;
+
                 default:
                     inputScreen.innerHTML += btnValue;
                     decimalAdded = false;
@@ -80,11 +81,11 @@ function pageLoad() {
             }
         });
     }
-
 }
 
 function playAudio(number) {
-    var audio = null;
+    let audio = null;
+
     switch (number) {
         case '0':
             audio = new Audio('sounds/zero.wav');
