@@ -42,6 +42,7 @@ function pageLoad() {
                     if(!decimalAdded) {
                         inputScreen.innerHTML += btnValue;
                         decimalAdded = true;
+                        playAudio(btnValue);
                     }
                     break;
                 case '+':
@@ -69,6 +70,7 @@ function pageLoad() {
                 case 'C':
                     inputScreen.innerHTML = '';
                     decimalAdded = false;
+                    playAudio(btnValue);
                     break;
                 default:
                     inputScreen.innerHTML += btnValue;
@@ -120,8 +122,20 @@ function playAudio(number) {
         case '-':
             audio = new Audio('sounds/subtraction.wav');
             break;
+        case '*':
+            audio = new Audio('sounds/multiplication.wav');
+            break;
+        case '/':
+            audio = new Audio('sounds/division.wav');
+            break;
         case '=':
             audio = new Audio('sounds/equal.wav');
+            break;
+        case '.':
+            audio = new Audio('sounds/decimal-place.wav');
+            break;
+        case 'C':
+            audio = new Audio('sounds/cancel.wav');
             break;
     }
 
