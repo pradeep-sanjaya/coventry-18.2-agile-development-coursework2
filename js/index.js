@@ -6,10 +6,9 @@ function pageLoad() {
         input;
 
     for (let i = 0; i < buttons.length; i++) {
-        var decimalAdded = false; // Flag used to avoid two decimal
+        var isDecimalAdded = false; // Flag used to avoid two decimal
 
-        buttons[i].addEventListener('click', function() {
-
+        buttons[i].addEventListener('click', function () {
             btnValue = this.innerHTML;
             input = inputScreen.innerHTML;
 
@@ -32,14 +31,14 @@ function pageLoad() {
                         // If the argument is one or more JavaScript statements, eval() executes the statements.
                         inputScreen.innerHTML = eval(input);
                     }
-                    decimalAdded = false;
+                    isDecimalAdded = false;
                     playAudio(btnValue);
                     break;
 
                 case '.':
-                    if (!decimalAdded) {
+                    if (!isDecimalAdded) {
                         inputScreen.innerHTML += btnValue;
-                        decimalAdded = true;
+                        isDecimalAdded = true;
                         playAudio(btnValue);
                     }
                     break;
@@ -63,19 +62,19 @@ function pageLoad() {
                     if (operators.indexOf(lastChar) > -1 && input.length > 1) {
                         inputScreen.innerHTML = input.replace(/.$/, btnValue);
                     }
-                    decimalAdded = false;
+                    isDecimalAdded = false;
                     playAudio(btnValue);
                     break;
 
                 case 'C':
                     inputScreen.innerHTML = '';
-                    decimalAdded = false;
+                    isDecimalAdded = false;
                     playAudio(btnValue);
                     break;
 
                 default:
                     inputScreen.innerHTML += btnValue;
-                    decimalAdded = false;
+                    isDecimalAdded = false;
                     playAudio(btnValue);
                     break;
             }
@@ -90,51 +89,67 @@ function playAudio(number) {
         case '0':
             audio = new Audio('sounds/zero.wav');
             break;
+
         case '1':
             audio = new Audio('sounds/one.wav');
             break;
+
         case '2':
             audio = new Audio('sounds/two.wav');
             break;
+
         case '3':
             audio = new Audio('sounds/three.wav');
             break;
+
         case '4':
             audio = new Audio('sounds/four.wav');
             break;
+
         case '5':
             audio = new Audio('sounds/five.wav');
             break;
+
         case '6':
             audio = new Audio('sounds/six.wav');
             break;
+
         case '7':
             audio = new Audio('sounds/seven.wav');
             break;
+
         case '8':
             audio = new Audio('sounds/eight.wav');
             break;
+
         case '9':
             audio = new Audio('sounds/nine.wav');
             break;
+
         case '+':
             audio = new Audio('sounds/addition.wav');
             break;
+
         case '-':
             audio = new Audio('sounds/subtraction.wav');
             break;
+
         case '*':
             audio = new Audio('sounds/multiplication.wav');
             break;
+
         case '/':
             audio = new Audio('sounds/division.wav');
             break;
+
         case '=':
             audio = new Audio('sounds/equal.wav');
             break;
+
         case '.':
             audio = new Audio('sounds/decimal-place.wav');
             break;
+
         case 'C':
             audio = new Audio('sounds/cancel.wav');
             break;
