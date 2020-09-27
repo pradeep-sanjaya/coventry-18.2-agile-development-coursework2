@@ -5,13 +5,13 @@
    <!-- START doctoc generated TOC please keep comment here to allow auto update -->
    <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
    
-   - [Technologies](#technologies)
+   - [Useful Details](#usefulDetails)
    
    <!-- END doctoc generated TOC please keep comment here to allow auto update -->
  
 ## :sparkles: Useful Details
  
- Usage          	            | Technology
+ Usage          	            | Description
  --------------------------	| --------------------------
  Language        | JavaScript
  Styling      	| Cascading Style Sheets
